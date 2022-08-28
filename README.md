@@ -1,4 +1,4 @@
-STEPS TO RUN THE PROJECT :<br>
+STEPS TO RUN THE PROJECT :<br><br>
     1. Import the project from github.<br>
     2. run composer update <br>
     3. run cp .env.example .env <br>
