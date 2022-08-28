@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use GuzzleHttp\Psr7\Response;
+use Illuminate\Http\Client\Response as ClientResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
-// use PHPOpenSourceSaver\JWTAuth;
 // use Jenssegers\Agent\Agent;
 class AuthController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['login','register']]);
+        $this->middleware('auth', ['except' => ['login','register','removeToken']]);
     }
 
     public function login(Request $request)
@@ -33,8 +36,7 @@ class AuthController extends Controller
         }
 
         $user = Auth::user();
-        // Cookie::set()
-        return redirect()->route('dashboard')->withCookie(cookie('token', $user->createToken($request->email)->plainTextToken));
+        return redirect()->route('dashboard')->withCookie(cookie('token',$user->createToken($request->email)->plainTextToken));
         // return response()->json([
         //         'status' => 'success',
         //         'user' => $user,
@@ -67,7 +69,7 @@ class AuthController extends Controller
         ]);
 
         $token = Auth::login($user);
-        return redirect()->route('dashboard')->with(['token'=> $token]);
+        return redirect()->route('dashboard')->withCookie('token', $user->createToken($request->email)->plainTextToken);
 
         // return response()->json([
         //     'status' => 'success',
@@ -99,5 +101,13 @@ class AuthController extends Controller
                 'type' => 'bearer',
             ]
         ]);
+    }
+    public function removeToken(Request $request)
+    {
+         Cookie::queue(Cookie::forget('token'));
+         Auth::logout();
+         return 'logged out successfully';
+        // return response('Cookie deleted successfully')->withCookie(cookie('token', ''));
+
     }
 }

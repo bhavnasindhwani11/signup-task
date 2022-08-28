@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 Route::get('/signup', function(){
     return view('signup');
-})->name('signup');
+});
 Route::post('send-email', function(Request $req){
     // $data = $req->all();
     $randomOTP = rand(100000, 999999);
@@ -45,4 +45,5 @@ Route::get('dashboard', function(){
     return view('dashboard');
 })->name('dashboard');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('refresh-token', [AuthController::class, 'refresh']);
+// Route::get('refresh-token', [AuthController::class, 'refresh']);
+Route::get('remove-token',[AuthController::class, 'removeToken']);

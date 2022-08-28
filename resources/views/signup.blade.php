@@ -99,7 +99,7 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label for="">Confirm Password</label>
+                                    <label for="">Password</label>
                                     <input required class="input--style-4" type="password" name="c_password">
 
                                 </div>
@@ -135,7 +135,6 @@
                         </div> --}}
                         <div class="p-t-15">
                             <button id="clickSubmit" class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
-                            <button class="btn btn-success"><a href="{{route('login')}}" >Login</a></button>
                         </div>
                     </form>
                 </div>
