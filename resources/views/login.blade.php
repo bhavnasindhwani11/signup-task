@@ -12,14 +12,14 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
-    
+
     <!-- Style -->
     <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
 
     <title>Login #2</title>
   </head>
   <body>
-  
+
 
   <div class="d-lg-flex half">
     <div class="bg order-1 order-md-2" style="background-image: url('images/bg_1.jpg');"></div>
@@ -41,13 +41,13 @@
                 <label for="password">Password</label>
                 <input type="password" class="form-control" name="password" placeholder="Your Password" id="password">
               </div>
-              
+
               <div class="d-flex mb-5 align-items-center">
                 <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
                   <input type="checkbox" />
                   <div class="control__indicator"></div>
                 </label>
-                 <span class="ml-auto"><a href="{{route('signup')}}" class="forgot-pass">Signup</a></span> 
+                 <span class="ml-auto"><a href="{{route('signup')}}" class="forgot-pass">Signup</a></span>
               </div>
 
               <input type="submit" value="Log In" class="btn btn-block btn-primary">
@@ -58,10 +58,10 @@
       </div>
     </div>
 
-    
+
   </div>
-    
-    
+
+
 
     <script src="{{URL::asset('js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{URL::asset('js/popper.min.js')}}"></script>

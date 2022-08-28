@@ -28,7 +28,7 @@ Route::post('send-email', function(Request $req){
     $randomOTP = rand(100000, 999999);
     $data= [
         'email' => $req->sendEmail,
-        
+
         'otp' => $randomOTP
     ];
     Mail::to($req->sendEmail)->send(new SignupOTP($randomOTP));
